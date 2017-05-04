@@ -55,6 +55,7 @@ public class AppTitleSubFragment extends Fragment {
         imageView = (ImageView) root.findViewById(R.id.appIcon);
         AppInfoTask appInfoTask = new AppInfoTask(applicationInfo, packageViewTextView, imageView);
         appInfoTask.execute();
+
         return root;
     }
 

@@ -12,7 +12,9 @@ import java.util.List;
  */
 
 public class AppsPagerAdapter extends FragmentStatePagerAdapter {
+
     private List<ApplicationInfo> infoList;
+
     public AppsPagerAdapter(FragmentManager fm, List<ApplicationInfo> infoList) {
         super(fm);
         this.infoList = infoList;

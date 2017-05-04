@@ -1,8 +1,11 @@
 package ru.sberbank.user7.pagerfragments;
 
 
+import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
@@ -34,6 +37,7 @@ public class AppInfoFragment extends Fragment {
         AppTitleSubFragment fragment = AppTitleSubFragment.newInstance(applicationInfo);
         getChildFragmentManager().beginTransaction().add(R.id.appinfolayout, fragment).commit();
 
+
     }
 
     @Nullable
@@ -42,6 +46,15 @@ public class AppInfoFragment extends Fragment {
         View root = inflater.inflate(R.layout.appinfofragment, container, false);
         packageViewTextView = (TextView) root.findViewById(R.id.tv);
         packageViewTextView.setText(applicationInfo.packageName);
+
+        
+        boolean powersave = false;
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            PowerManager powerManager = (PowerManager) getContext().getSystemService(Context.POWER_SERVICE);
+            powersave = powerManager.isPowerSaveMode();
+        }
+        if(powersave==false)
+            packageViewTextView.setText("powerSave");
         return root;
     }
 }
