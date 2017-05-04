@@ -1,0 +1,10 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="MediumTextAppearance" parent="android:TextAppearance.Holo.Medium">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
+</resources>
